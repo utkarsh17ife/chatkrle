@@ -1,0 +1,25 @@
+{
+  "name": "utkarsh",
+  "version": "0.0.1",
+  "description": "simple chat application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "utkarsh",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.10.2",
+    "socket.io": "^1.4.6"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/utkarsh17ife/tyagiChat.git"
+  },
+  "bugs": {
+    "url": "https://github.com/utkarsh17ife/tyagiChat/issues"
+  },
+  "homepage": "https://github.com/utkarsh17ife/tyagiChat#readme"
+}
