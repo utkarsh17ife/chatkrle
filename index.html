@@ -20,10 +20,10 @@
       <input id="m" autocomplete="off" /><button>Send</button>
     </form>
   </body>
-<script src="https://tyagichat.herokuapp.com/socket.io/socket.io.js"></script>
+<script src="https://chatkrle.herokuapp.com/socket.io/socket.io.js"></script>
 <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 <script>
-  var socket = io.connect('https://tyagichat.herokuapp.com/');
+  var socket = io.connect('https://chatkrle.herokuapp.com/');
   $('form').submit(function(){
     socket.emit('chat_message', $('#m').val());
     $('#m').val('');
