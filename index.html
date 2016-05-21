@@ -1,37 +1,58 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Chat with me!</title>
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
       body { font: 13px Helvetica, Arial; }
-      form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+      form { background: #000; padding: 1px; position: fixed; bottom: 0; width: 100%; }
       form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
-      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+      form button { width: 	9% ; background: rgb(130, 224, 255); border: none; padding: 10px; }
       #messages { list-style-type: none; margin: 0; padding: 0; }
       #messages li { padding: 5px 10px; }
       #messages li:nth-child(odd) { background: #eee; }
+	  #divcontainer{  padding-bottom: 50px ; }
     </style>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   </head>
 
-  <body>
-    <ul id="messages"></ul>
+  <body id="body">
+	<div id="divcontainer" >
+		<ul id="messages"></ul>
     <form action="">
-      <input id="m" autocomplete="off" /><button>Send</button>
+      <input id="m" autocomplete="off" required="required" /><button>POO!   </button>
     </form>
+	</div>
   </body>
 <script src="https://chatkrle.herokuapp.com/socket.io/socket.io.js"></script>
 <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 <script>
+
+	var name;
+    $(document).ready(function() {
+        name = prompt("whome would you wanna be??");
+    });
+
+	divx = document.getElementById("body");
   var socket = io.connect('https://chatkrle.herokuapp.com/');
   $('form').submit(function(){
-    socket.emit('chat_message', $('#m').val());
+    socket.emit('chat_message',{ username:name , text: $('#m').val()} );
     $('#m').val('');
     return false;
   });
   socket.on('message', function(msg){
-    console.log(msg);
-    $('#messages').append($('<li>').text(msg));
+    $('#messages').append($('<li>').text(msg.username + ":" +msg.text));
+	
+	divx.scrollTop = divx.scrollHeight;
   });
+  
+    
+
+    
+
 </script>
 </html>
