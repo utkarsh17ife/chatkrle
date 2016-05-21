@@ -12,15 +12,15 @@
       form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
       form button { width: 	9% ; background: rgb(130, 224, 255); border: none; padding: 10px; }
       #messages { list-style-type: none; margin: 0; padding: 0; }
-      #messages li { padding: 5px 10px; }
-      #messages li:nth-child(odd) { background: #eee; }
+      #messages li { color:white; padding: 5px 10px; }
+      #messages li:nth-child(odd) { }
 	  #divcontainer{  padding-bottom: 50px ; }
     </style>
 	<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   </head>
 
-  <body id="body">
+  <body id="body" >
 	<div id="divcontainer" >
 		<ul id="messages"></ul>
     <form action="">
@@ -33,8 +33,15 @@
 <script>
 
 	var name;
-    $(document).ready(function() {
-        name = prompt("whome would you wanna be??");
+ 
+	$(document).ready(function() {
+        name = prompt("what would yu wanna be called", "Harry Potter");
+		if (name != "null") {
+		alert("wassup " + name + " nigger!")
+		}
+		if(name == "null"){
+		window.location.reload();
+		}
     });
 
 	divx = document.getElementById("body");
