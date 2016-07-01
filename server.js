@@ -3,7 +3,8 @@ var app = express();
 
 app.use(express.static('public')); 
 app.get("/", function(req, res){
-    res.sendFile( __dirname + "/" + "index.html");
+    res.sendFile( __dirname + "/" + "index.html" + "batman.jpg");
+    
 });
 
 var io = require('socket.io').listen(app.listen(process.env.PORT || 5000));
